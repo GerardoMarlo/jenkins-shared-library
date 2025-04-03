@@ -23,6 +23,15 @@ def call() {
 
     echo "Executing Jenkinsfile: ${jenkinsfilePath}"
     // Read and evaluate the Jenkinsfile from the shared library
-    def scriptContent = libraryResource(jenkinsfilePath)
-    evaluate(scriptContent)
+    def jenkinsfileContent  = libraryResource(jenkinsfilePath)
+    def jenkinsfilePath = "${env.WORKSPACE}/${jenkinsfileName}"
+    writeFile file: jenkinsfilePath, text: jenkinsfileContent
+    try {
+        // Load and execute the Jenkinsfile
+        load jenkinsfilePath
+    } finally {
+        // Ensure the file is deleted even if there's an error
+        echo "Deleting Jenkinsfile: ${jenkinsfilePath}"
+        sh "rm -f ${jenkinsfilePath}"
+    }
 }
