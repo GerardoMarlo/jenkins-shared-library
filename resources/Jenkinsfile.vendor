@@ -1,19 +1,14 @@
 
 node {
-    stage('Setup for Alice') {
-        steps {
+    stage('Setup for Vendor') {
             echo 'Setting up environment for Vendor...'
-        }
     }
     stage('Build') {
-        steps {
             echo 'Building the project for Vendor...'
-        }
+        
     }
     stage('Deploy') {
-        steps {
             echo 'Deploying Vendor application...'
-        }
     }
 }
 
