@@ -1,16 +1,3 @@
-def call(String user) {
-    def jenkinsfilePath = "jenkinsfiles/Jenkinsfile.default"
-
-    if (user == "vendor") {
-        jenkinsfilePath = "jenkinsfiles/Jenkinsfile.vendor"
-    } else if (user == "admin") {
-        jenkinsfilePath = "jenkinsfiles/Jenkinsfile.default"
-    }
-
-    echo "Executing Jenkinsfile: ${jenkinsfilePath}"
-    load jenkinsfilePath
-}
-
 
 def call() {
     // Securely detect the actual user who triggered the build
@@ -35,5 +22,7 @@ def call() {
     }
 
     echo "Executing Jenkinsfile: ${jenkinsfilePath}"
-    load jenkinsfilePath
+    // Read and evaluate the Jenkinsfile from the shared library
+    def scriptContent = libraryResource(jenkinsfilePath)
+    evaluate(scriptContent)
 }
