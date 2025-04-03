@@ -13,6 +13,7 @@ def call() {
     }
 
     echo "Detected user: ${user}"
+    env.USER = user
 
     // Define which Jenkinsfile to execute based on the user
     def jenkinsfileName = "Jenkinsfile.default"

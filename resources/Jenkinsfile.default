@@ -7,6 +7,6 @@ node {
         echo 'Running tests for default pipeline'
     }
     stage('Print Message') {
-        echo "Hey ${user}, you smell ${params.SMELL}"
+        echo "Hey ${env.USER}, you smell ${params.SMELL}"
     }
 }
