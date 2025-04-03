@@ -15,10 +15,10 @@ def call() {
     echo "Detected user: ${user}"
 
     // Define which Jenkinsfile to execute based on the user
-    def jenkinsfilePath = "jenkinsfiles/Jenkinsfile.default"
+    def jenkinsfilePath = "Jenkinsfile.default"
 
     if (user == "vendor") {
-        jenkinsfilePath = "jenkinsfiles/Jenkinsfile.vendor"
+        jenkinsfilePath = "Jenkinsfile.vendor"
     }
 
     echo "Executing Jenkinsfile: ${jenkinsfilePath}"
