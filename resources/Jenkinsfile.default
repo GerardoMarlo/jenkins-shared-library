@@ -1,10 +1,9 @@
-stage('Default Setup') {
-    steps {
-        echo 'This is the default pipeline.'
+node {
+    stage('Build') {
+        echo 'Building with default pipeline'
     }
-}
-stage('Build') {
-    steps {
-        echo 'Executing default build process...'
+
+    stage('Test') {
+        echo 'Running tests for default pipeline'
     }
 }
