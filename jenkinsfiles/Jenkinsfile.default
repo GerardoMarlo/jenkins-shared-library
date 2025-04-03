@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Default Setup') {
+            steps {
+                echo 'This is the default pipeline.'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Executing default build process...'
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Setup for Alice') {
+            steps {
+                echo 'Setting up environment for Vendor...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building the project for Vendor...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying Vendor application...'
+            }
+        }
+    }
+}
