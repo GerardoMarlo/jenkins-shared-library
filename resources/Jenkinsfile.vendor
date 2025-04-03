@@ -11,7 +11,7 @@ node {
             echo 'Deploying Vendor application...'
     }
     stage('Print Message') {
-        echo "Hey ${env.USER}, you smell ${params.SMELL}"
+        echo "Hey ${user}, you smell ${params.SMELL}"
     }
 }
 
