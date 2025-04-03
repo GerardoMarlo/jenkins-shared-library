@@ -15,16 +15,17 @@ def call() {
     echo "Detected user: ${user}"
 
     // Define which Jenkinsfile to execute based on the user
-    def jenkinsfilePath = "Jenkinsfile.default"
+    def jenkinsfileName = "Jenkinsfile.default"
 
     if (user == "vendor") {
-        jenkinsfilePath = "Jenkinsfile.vendor"
+        jenkinsfileName = "Jenkinsfile.vendor"
     }
 
-    echo "Executing Jenkinsfile: ${jenkinsfilePath}"
-    // Read and evaluate the Jenkinsfile from the shared library
-    def jenkinsfileContent  = libraryResource(jenkinsfilePath)
+    echo "Executing Jenkinsfile: ${jenkinsfileName}"
     def jenkinsfilePath = "${env.WORKSPACE}/${jenkinsfileName}"
+    // Read and evaluate the Jenkinsfile from the shared library
+    def jenkinsfileContent  = libraryResource(jenkinsfileName)
+    
     writeFile file: jenkinsfilePath, text: jenkinsfileContent
     try {
         // Load and execute the Jenkinsfile
